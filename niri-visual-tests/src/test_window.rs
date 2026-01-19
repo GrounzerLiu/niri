@@ -198,11 +198,11 @@ impl LayoutElement for TestWindow {
         false
     }
 
-    fn set_preferred_scale_transform(&self, _scale: output::Scale, _transform: Transform) {}
-
     fn has_ssd(&self) -> bool {
         false
     }
+
+    fn set_preferred_scale_transform(&self, _scale: output::Scale, _transform: Transform) {}
 
     fn output_enter(&self, _output: &Output) {}
 
@@ -216,9 +216,17 @@ impl LayoutElement for TestWindow {
 
     fn set_floating(&mut self, _floating: bool) {}
 
+    fn is_floating(&self) -> bool {
+        false
+    }
+
     fn set_bounds(&self, _bounds: Size<i32, Logical>) {}
 
     fn is_ignoring_opacity_window_rule(&self) -> bool {
+        false
+    }
+
+    fn is_urgent(&self) -> bool {
         false
     }
 
@@ -228,12 +236,12 @@ impl LayoutElement for TestWindow {
 
     fn send_pending_configure(&mut self) {}
 
-    fn pending_sizing_mode(&self) -> SizingMode {
-        self.inner.borrow().pending_sizing_mode
-    }
-
     fn sizing_mode(&self) -> SizingMode {
         SizingMode::Normal
+    }
+
+    fn pending_sizing_mode(&self) -> SizingMode {
+        self.inner.borrow().pending_sizing_mode
     }
 
     fn requested_size(&self) -> Option<Size<i32, Logical>> {
@@ -244,11 +252,11 @@ impl LayoutElement for TestWindow {
         false
     }
 
-    fn refresh(&self) {}
-
     fn rules(&self) -> &ResolvedWindowRules {
         &self.rules
     }
+
+    fn refresh(&self) {}
 
     fn take_animation_snapshot(&mut self) -> Option<LayoutElementRenderSnapshot> {
         None
@@ -258,13 +266,9 @@ impl LayoutElement for TestWindow {
 
     fn cancel_interactive_resize(&mut self) {}
 
-    fn on_commit(&mut self, _serial: Serial) {}
-
     fn interactive_resize_data(&self) -> Option<InteractiveResizeData> {
         None
     }
 
-    fn is_urgent(&self) -> bool {
-        false
-    }
+    fn on_commit(&mut self, _serial: Serial) {}
 }

@@ -1320,6 +1320,16 @@ mod tests {
                     inactive_gradient: None,
                     urgent_gradient: None,
                 },
+                blur: Blur {
+                    on: false,
+                    passes: 0,
+                    radius: FloatOrInt(
+                        0.0,
+                    ),
+                    noise: FloatOrInt(
+                        0.0,
+                    ),
+                },
                 shadow: Shadow {
                     on: false,
                     offset: ShadowOffset {
@@ -1796,6 +1806,13 @@ mod tests {
                         active_gradient: None,
                         inactive_gradient: None,
                         urgent_gradient: None,
+                    },
+                    blur: BlurRule {
+                        off: false,
+                        on: false,
+                        passes: None,
+                        radius: None,
+                        noise: None,
                     },
                     shadow: ShadowRule {
                         off: false,

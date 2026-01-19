@@ -126,6 +126,7 @@ impl TestCase for Tile {
             location,
             true,
             RenderTarget::Output,
+            None,
             &mut |elem| rv.push(Box::new(elem) as _),
         );
         rv
